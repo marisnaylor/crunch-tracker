@@ -84,14 +84,7 @@ table.heat { width:100%; table-layout:fixed; }
 .legend-bar { flex:1; max-width:260px; height:10px; border-radius:5px;
   background:linear-gradient(to right,var(--b0-bg),var(--b3-bg),var(--b6-bg),var(--b9-bg),var(--b12-bg)); }
 .h2-sub { display:block; font-weight:400; font-size:12px; color:var(--muted); margin-top:1px; }
-.sec-head { display:flex; align-items:flex-end; justify-content:space-between;
-  gap:12px; margin:28px 0 10px; }
-.sec-head h2 { margin:0; }
-.today-btn { font-size:13px; padding:4px 14px; border:1px solid var(--border);
-  border-radius:999px; color:var(--ink); text-decoration:none;
-  background:var(--card); white-space:nowrap; }
-.today-btn:hover { background:var(--grid); }
-.today-btn:focus-visible { outline:2px solid var(--series); outline-offset:2px; }
+
 .daybox input { position:absolute; opacity:0; pointer-events:none; }
 .day-labels { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:12px; }
 .day-labels label { font-size:13px; padding:4px 14px; border:1px solid var(--border);
@@ -110,33 +103,11 @@ table.heat { width:100%; table-layout:fixed; }
 .bar.actual { position:absolute; left:50%; transform:translateX(-50%);
   width:44%; max-width:16px; bottom:0; }
 #d0:checked ~ .day-labels label[for=d0]{background:var(--series);color:#fff;border-color:var(--series);}#d0:checked ~ .dp0{display:block;}#d0:focus-visible ~ .day-labels label[for=d0]{outline:2px solid var(--series);outline-offset:2px;}#d1:checked ~ .day-labels label[for=d1]{background:var(--series);color:#fff;border-color:var(--series);}#d1:checked ~ .dp1{display:block;}#d1:focus-visible ~ .day-labels label[for=d1]{outline:2px solid var(--series);outline-offset:2px;}#d2:checked ~ .day-labels label[for=d2]{background:var(--series);color:#fff;border-color:var(--series);}#d2:checked ~ .dp2{display:block;}#d2:focus-visible ~ .day-labels label[for=d2]{outline:2px solid var(--series);outline-offset:2px;}#d3:checked ~ .day-labels label[for=d3]{background:var(--series);color:#fff;border-color:var(--series);}#d3:checked ~ .dp3{display:block;}#d3:focus-visible ~ .day-labels label[for=d3]{outline:2px solid var(--series);outline-offset:2px;}#d4:checked ~ .day-labels label[for=d4]{background:var(--series);color:#fff;border-color:var(--series);}#d4:checked ~ .dp4{display:block;}#d4:focus-visible ~ .day-labels label[for=d4]{outline:2px solid var(--series);outline-offset:2px;}#d5:checked ~ .day-labels label[for=d5]{background:var(--series);color:#fff;border-color:var(--series);}#d5:checked ~ .dp5{display:block;}#d5:focus-visible ~ .day-labels label[for=d5]{outline:2px solid var(--series);outline-offset:2px;}#d6:checked ~ .day-labels label[for=d6]{background:var(--series);color:#fff;border-color:var(--series);}#d6:checked ~ .dp6{display:block;}#d6:focus-visible ~ .day-labels label[for=d6]{outline:2px solid var(--series);outline-offset:2px;}
-.wstrip { display:flex; gap:3px; padding-top:26px; }
-.wgroup { flex:1; display:flex; flex-direction:column; }
-.wbars { display:flex; align-items:flex-end; gap:2px; height:96px;
-  border-bottom:1px solid var(--grid); }
-.wbar { flex:1; min-width:4px; position:relative; background:var(--series);
-  border-radius:3px 3px 0 0; transition:filter .15s, transform .15s;
-  transform-origin:bottom; }
-.wbar.wghost { height:5%; background:var(--grid); }
-.wbar:hover { filter:brightness(1.18); transform:scaleY(1.06); }
-.wbar:hover, .wbar:focus-visible { z-index:7; }
+
 .bar-cell:hover, .bar-cell:focus-visible { z-index:7; }
 .heat td[data-tip]:hover, .heat td[data-tip]:focus-visible { z-index:7; }
-.wbar:hover::after, .wbar:focus-visible::after { content:attr(data-flag);
-  position:absolute; bottom:calc(100% + 6px); left:50%; transform:translateX(-50%);
-  font-size:11px; white-space:nowrap; color:var(--ink); background:var(--card);
-  border:1px solid var(--border); border-radius:5px; padding:2px 8px;
-  box-shadow:0 2px 6px rgba(0,0,0,.12); z-index:5; }
-.wgroup:first-child .wbar::after { left:0; transform:none; }
-.wgroup:last-child .wbar::after { left:auto; right:0; transform:none; }
-.wticks { display:flex; gap:2px; margin-top:3px; }
-.wtick { flex:1; min-width:4px; font-size:8px; color:var(--muted);
-  text-align:center; overflow:visible; white-space:nowrap; }
-.wday-label { font-size:11px; color:var(--ink2); text-align:center;
-  font-weight:500; margin-top:2px; }
-.wgroup.today .wday-label { color:var(--ink); font-weight:700; }
-@media (prefers-reduced-motion: reduce) { .wbar { transition:none; } }
-.chart { display:flex; align-items:flex-end; gap:6px; height:180px;
+
+.wgroup.today @media (prefers-reduced-motion: reduce) { .chart { display:flex; align-items:flex-end; gap:6px; height:180px;
   padding-top:18px; padding-left:34px; position:relative; }
 .gline { position:absolute; left:34px; right:0; height:1px; background:var(--grid); }
 .glabel { position:absolute; left:0; width:26px; text-align:right; font-size:9px;
@@ -144,7 +115,7 @@ table.heat { width:100%; table-layout:fixed; }
 .bar-cell { flex:1; display:flex; flex-direction:column; align-items:center;
   justify-content:flex-end; height:100%; min-width:22px; position:relative; }
 .nowcol .bar { animation:livepulse 2.5s ease-in-out infinite; }
-.wbar.livebar { animation:livepulse 2.5s ease-in-out infinite; }
+.livebar { animation:livepulse 2.5s ease-in-out infinite; }
 .heat td.now { animation:livecell 2.5s ease-in-out infinite; }
 .livedot { animation:livedot 2.5s ease-in-out infinite; }
 .hero .dot { animation:livedim 2.5s ease-in-out infinite; }
@@ -153,7 +124,7 @@ table.heat { width:100%; table-layout:fixed; }
 @keyframes livedot { 50% { fill:var(--ink); } }
 @keyframes livedim { 50% { opacity:.45; } }
 @media (prefers-reduced-motion: reduce) {
-  .nowcol .bar, .wbar.livebar, .heat td.now, .livedot, .hero .dot { animation:none; } }
+  .nowcol .bar, .livebar, .heat td.now, .livedot, .hero .dot { animation:none; } }
 .barbox[data-tip]::after {
   content:attr(data-tip); position:absolute; bottom:calc(var(--bh, 4%) + 8px);
   left:50%; transform:translateX(-50%); font-size:11px; white-space:nowrap;
@@ -222,10 +193,8 @@ details summary { cursor:pointer; font-size:14px; }
   .chart { gap:2px; padding-left:30px; }
   .bar-cell { min-width:0; }
   .bar-x { font-size:11px; }
-  .wtick { font-size:10px; }
-  .glabel { font-size:10px; }
-  .wday-label { font-size:12px; }
-  .tile-sub, .bh-val, .spark-label { font-size:13px; }
+    .glabel { font-size:10px; }
+    .tile-sub, .bh-val, .spark-label { font-size:13px; }
   .spark { max-width:100%; }
   .wx-desktop { display:none; }
   .wx-mobile { display:block; }
@@ -233,7 +202,7 @@ details summary { cursor:pointer; font-size:14px; }
 </style>
 <div class="crunch-wrap">
 <h1>Crunch capacity — Austin West Parmer Lane</h1>
-<p class="sub">Updated Sunday Jul 26, 3:07 PM · logged every 30 min from the Crunch-o-Meter</p>
+<p class="sub">Updated Sunday Jul 26, 3:08 PM · logged every 30 min from the Crunch-o-Meter</p>
 <div class="hero"><div><div class="tile-label">Right now</div><div class="hero-line"><span class="hero-value">12%</span><span class="pill"><span class="dot" style="background:#0ca30c"></span>light</span></div><div class="tile-sub">as of Sun 3:00 PM</div></div><div class="spark"><svg width="340" height="56" viewBox="0 0 340 56" role="img" aria-label="capacity over the last 24 hours"><polygon points="6,56 6.0,39.0 13.0,39.0 20.0,36.8 26.9,35.7 33.9,39.0 40.9,39.0 47.9,39.0 54.9,39.0 61.8,39.0 68.8,39.0 75.8,39.0 82.8,39.0 89.7,39.0 96.7,39.0 103.7,39.0 110.7,39.0 117.7,39.0 124.6,39.0 131.6,39.0 138.6,39.0 145.6,39.0 152.6,39.0 159.5,39.0 166.5,39.0 173.5,39.0 180.5,39.0 187.4,39.0 194.4,39.0 201.4,39.0 208.4,39.0 215.4,39.0 222.3,39.0 229.3,39.0 236.3,39.0 243.3,39.0 250.3,39.0 257.2,39.0 264.2,39.0 271.2,39.0 278.2,37.9 285.1,36.8 292.1,35.7 299.1,33.5 306.1,32.4 313.1,32.4 320.1,33.5 327.0,34.6 334.0,36.8 334.0,56" fill="var(--series)" opacity="0.12"/><polyline points="6.0,39.0 13.0,39.0 20.0,36.8 26.9,35.7 33.9,39.0 40.9,39.0 47.9,39.0 54.9,39.0 61.8,39.0 68.8,39.0 75.8,39.0 82.8,39.0 89.7,39.0 96.7,39.0 103.7,39.0 110.7,39.0 117.7,39.0 124.6,39.0 131.6,39.0 138.6,39.0 145.6,39.0 152.6,39.0 159.5,39.0 166.5,39.0 173.5,39.0 180.5,39.0 187.4,39.0 194.4,39.0 201.4,39.0 208.4,39.0 215.4,39.0 222.3,39.0 229.3,39.0 236.3,39.0 243.3,39.0 250.3,39.0 257.2,39.0 264.2,39.0 271.2,39.0 278.2,37.9 285.1,36.8 292.1,35.7 299.1,33.5 306.1,32.4 313.1,32.4 320.1,33.5 327.0,34.6 334.0,36.8" fill="none" stroke="var(--series)" stroke-width="2" stroke-linejoin="round"/><circle class="livedot" cx="334.0" cy="36.8" r="3.5" fill="var(--series)" stroke="var(--card)" stroke-width="2"/></svg><span class="spark-label">last 24 h</span></div></div>
 <div class="tiles"><div class="tile tile-wide"><div class="tile-label">Best bet for today</div><div class="winbox"><input type="radio" name="win" id="w0"><input type="radio" name="win" id="w1"><input type="radio" name="win" id="w2" checked><input type="radio" name="win" id="w3"><div class="win-labels"><label for="w0">9 AM–12 PM</label><label for="w1">12–3 PM</label><label for="w2">3–6 PM</label><label for="w3">6–9 PM</label></div><div class="win-ans wa0">10 AM · typically 10% (quiet 2 hrs)</div><div class="win-ans wa1">12 PM · typically 14%</div><div class="win-ans wa2">3 PM · typically 12%</div><div class="win-ans wa3">no Sunday data in this window yet</div></div></div><div class="tile"><div class="tile-label">Quietest slot</div><div class="tile-value">10%</div><div class="tile-sub">Fri 2 PM</div></div><div class="tile"><div class="tile-label">Busiest slot</div><div class="tile-value">28%</div><div class="tile-sub">Thu 7 PM</div></div></div>
 <h2>Quietest hour by day<span class="h2-sub">best slot each day, 9a–9p</span></h2>
