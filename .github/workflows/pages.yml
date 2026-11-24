@@ -9,6 +9,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  actions: read
 
 concurrency:
   group: pages
@@ -26,5 +27,10 @@ jobs:
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
+      # deploy-pages@v4 queries the artifact index ~0.5s after upload finalizes.
+      # That index is eventually consistent, so the lookup returned "Found 0
+      # artifact(s)" on roughly half of all runs. Wait for it to settle.
+      - name: Let the artifact index settle
+        run: sleep 20
       - id: deployment
         uses: actions/deploy-pages@v4
